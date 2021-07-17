@@ -61,7 +61,7 @@ sub execute {
     my ($cpan_release) = first { -d $_ } $cpan_release_dir->children();
     $self->log_fatal('no dir found in tar') if !-d $cpan_release;
 
-    system 'diff', '-u', $cpan_release->stringify(), $self->zilla->built_in == 0 or $self->log_fatal('Diff failed');
+    system( 'diff', '-u', $cpan_release->stringify(), $self->zilla->built_in ) == 0 or $self->log_fatal('Diff failed');
 
     return;
 }
