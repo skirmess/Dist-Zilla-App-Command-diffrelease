@@ -1,0 +1,8 @@
+*.bak
+*~
+.*.swp
+.build
+.perlcritic_package.yml
+Dist-Zilla-App-Command-diffrelease-*
+dzil-bundle
+tmp

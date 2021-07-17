@@ -1,0 +1,3 @@
+[-BuiltinFunctions::ProhibitUselessTopic]
+[-ControlStructures::ProhibitPostfixControls]
+[-NamingConventions::Capitalization]

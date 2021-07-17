@@ -1,0 +1,46 @@
+---
+abstract: 'diff a build with a distribution from CPAN'
+author:
+  - 'Sven Kirmess <sven.kirmess@kzone.ch>'
+build_requires:
+  Test::More: '0.88'
+  lib: '0'
+  perl: '5.006'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+  perl: '5.006'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 6.023, CPAN::Meta::Converter version 2.150010'
+license: open_source
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Dist-Zilla-App-Command-diffrelease
+no_index:
+  directory:
+    - t
+    - xt
+provides:
+  Dist::Zilla::App::Command::diffrelease:
+    file: lib/Dist/Zilla/App/Command/diffrelease.pm
+    version: '0.001'
+requires:
+  Archive::Tar: '0'
+  Dist::Zilla::App: '0'
+  File::pushd: '0'
+  HTTP::Tiny: '0'
+  List::Util: '0'
+  MetaCPAN::Client: '0'
+  Path::Tiny: '0'
+  namespace::autoclean: '0'
+  perl: '5.006'
+  strict: '0'
+  warnings: '0'
+resources:
+  bugtracker: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease/issues
+  homepage: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease
+  repository: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease.git
+version: '0.001'
+x_generated_by_perl: v5.24.0
+x_serialization_backend: 'YAML::Tiny version 1.73'
+x_spdx_expression: BSD-2-Clause-FreeBSD
