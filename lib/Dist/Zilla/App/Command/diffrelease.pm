@@ -21,47 +21,47 @@ sub execute {
     my ( $self, $opt, $arg ) = @_;
 
     my $dist_name = $self->zilla->name;
-    $self->log("distribution = $dist_name");
+    $self->zilla->log("distribution = $dist_name");
     my $cpan_data = MetaCPAN::Client->new->release($dist_name)->data;
     my $url       = $cpan_data->{download_url};
-    $self->log("url          = $url");
+    $self->zilla->log("url          = $url");
     my $md5 = $cpan_data->{checksum_md5};
-    $self->log("md5          = $md5");
+    $self->zilla->log("md5          = $md5");
     my $file_name = path( $cpan_data->{download_url} )->basename;
-    $self->log("file name    = $file_name");
+    $self->zilla->log("file name    = $file_name");
 
     my $cpan_release_dir = path( $self->zilla->root )->absolute->child('.release');
-    $self->log("Removing $cpan_release_dir");
+    $self->zilla->log("Removing $cpan_release_dir");
     $cpan_release_dir->remove_tree( { safe => 0 } );
-    $self->log("Creating $cpan_release_dir");
+    $self->zilla->log("Creating $cpan_release_dir");
     $cpan_release_dir->mkpath;
 
     my $cache = path( $self->zilla->root )->absolute->child('.release.cache')->child($md5);
-    $self->log("Creating $cache");
+    $self->zilla->log("Creating $cache");
     $cache->mkpath;
 
     my $file = $cache->child($file_name);
     if ( !-e $file ) {
-        $self->log("Fetching $url");
+        $self->zilla->log("Fetching $url");
         my $resp = HTTP::Tiny->new->get($url);
-        $self->log_fatal( $resp->{content} ) if !$resp->{success};
+        $self->zilla->log_fatal( $resp->{content} ) if !$resp->{success};
         $file->spew_raw( $resp->{content} );
     }
 
     my $tar = Archive::Tar->new( $file->stringify );
     {
-        $self->log("Extracting $file in $cpan_release_dir");
+        $self->zilla->log("Extracting $file in $cpan_release_dir");
         my $wd = pushd( $cpan_release_dir->stringify );    ## no critic (Variables::ProhibitUnusedVarsStricter)
         $tar->extract;
     }
 
-    $self->log('Building...');
+    $self->zilla->log('Building...');
     $self->zilla->ensure_built('--no-tgz');
 
     my ($cpan_release) = first { -d $_ } $cpan_release_dir->children();
-    $self->log_fatal('no dir found in tar') if !-d $cpan_release;
+    $self->zilla->log_fatal('no dir found in tar') if !-d $cpan_release;
 
-    system( 'diff', '-u', $cpan_release->stringify(), $self->zilla->built_in ) == 0 or $self->log_fatal('Diff failed');
+    system( 'diff', '-ur', $cpan_release->stringify(), $self->zilla->built_in ) == 0 or $self->zilla->log_fatal('Diff failed');
 
     return;
 }
