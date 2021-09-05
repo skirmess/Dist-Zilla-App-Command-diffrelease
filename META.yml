@@ -10,7 +10,7 @@ configure_requires:
   ExtUtils::MakeMaker: '0'
   perl: '5.006'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 6.023, CPAN::Meta::Converter version 2.150010'
+generated_by: 'Dist::Zilla, CPAN::Meta::Converter'
 license: open_source
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -20,10 +20,6 @@ no_index:
   directory:
     - t
     - xt
-provides:
-  Dist::Zilla::App::Command::diffrelease:
-    file: lib/Dist/Zilla/App/Command/diffrelease.pm
-    version: '0.001'
 requires:
   Archive::Tar: '0'
   Dist::Zilla::App: '0'
@@ -41,6 +37,4 @@ resources:
   homepage: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease
   repository: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease.git
 version: '0.001'
-x_generated_by_perl: v5.24.0
-x_serialization_backend: 'YAML::Tiny version 1.73'
 x_spdx_expression: BSD-2-Clause-FreeBSD

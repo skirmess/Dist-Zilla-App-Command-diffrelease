@@ -4,7 +4,7 @@
       "Sven Kirmess <sven.kirmess@kzone.ch>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 6.023, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Dist::Zilla, CPAN::Meta::Converter",
    "license" : [
       "freebsd"
    ],
@@ -49,12 +49,6 @@
          }
       }
    },
-   "provides" : {
-      "Dist::Zilla::App::Command::diffrelease" : {
-         "file" : "lib/Dist/Zilla/App/Command/diffrelease.pm",
-         "version" : "0.001"
-      }
-   },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
@@ -68,8 +62,6 @@
       }
    },
    "version" : "0.001",
-   "x_generated_by_perl" : "v5.24.0",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 3.0231",
    "x_spdx_expression" : "BSD-2-Clause-FreeBSD"
 }
 

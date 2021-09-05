@@ -45,4 +45,4 @@ This is free software, licensed under:
 
 # SEE ALSO
 
-[Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
+[Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla)
