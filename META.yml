@@ -37,4 +37,3 @@ resources:
   homepage: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease
   repository: https://github.com/skirmess/Dist-Zilla-App-Command-diffrelease.git
 version: '0.001'
-x_spdx_expression: BSD-2-Clause-FreeBSD
